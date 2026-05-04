@@ -55,7 +55,7 @@ def xdb(sql, args=()):
     db = get_db(); cur = db.execute(sql, args); db.commit()
     return cur.lastrowid
 
-# ═══════════════════════════════════════════════════════════════════
+
 #  SCORE 1 — OBJECTIVE SEAT QUALITY  (Q_obj)
 #
 #  Based on:
@@ -68,7 +68,7 @@ def xdb(sql, args=()):
 #  This score belongs to the SEAT, not the user.
 #  It is calculated ONCE at showtime creation and stored in seats.quality_score.
 #  It is identical for every user who looks at the same seat.
-# ═══════════════════════════════════════════════════════════════════
+
 def compute_seat_quality(row, col, total_rows, total_cols):
     """
     Objective quality score for a seat, range 0.5 – 10.0.

@@ -1,10 +1,10 @@
-/* ═══════════════════════════════════════════════════════════════════════════
+/*
    AbujaCine — Frontend App JS
    Real Paystack inline popup · Seat-aware recommendations · Live seat map
    Genre Matcher (rule-based) · Session-persistent auth
-   ═══════════════════════════════════════════════════════════════════════════ */
+ */
 
-// ─── STATE ─────────────────────────────────────────────────────────────────
+// STATE
 const S = {
   user: null,
   movies: [],
@@ -17,7 +17,7 @@ const S = {
   matcherMovies: [],
 };
 
-// ─── BOOT ──────────────────────────────────────────────────────────────────
+// BOOT
 document.addEventListener('DOMContentLoaded', async () => {
   applyTheme(localStorage.getItem('theme') || 'light');
   await checkAuth();   // Restores session if cookie still valid
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllModals(); });
 });
 
-// ─── AUTH ──────────────────────────────────────────────────────────────────
+//  AUTH
 async function checkAuth() {
   const r = await api('/api/me');
   if (r.logged_in) setUser(r);
